@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smarthouse/widgets/custom_drawer.dart';
+import 'package:smarthouse/tabs/atuadores_tab.dart';
 
 class HomePage extends StatelessWidget {
-
   final _pageControler = PageController();
 
   @override
@@ -17,9 +17,14 @@ class HomePage extends StatelessWidget {
             centerTitle: true,
           ),
           drawer: CustomDrawer(context, _pageControler),
+          body: AtuadoresTab(),
         ),
-        Container(color: Colors.black,),
-        Container(color: Colors.red,)
+        Container(
+          color: Colors.black,
+        ),
+        Container(
+          color: Colors.red,
+        )
       ],
     );
   }
