@@ -72,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              DrawerTile(Icons.settings_power, "Atuadores", pageController,0),
+              DrawerTile(Icons.home, "Ambientes", pageController,0),
               DrawerTile(Icons.remove_red_eye, "Alarmes", pageController,1),
               DrawerTile(Icons.settings, "Configurações", pageController, 2),
               DrawerTile(Icons.ac_unit, "Sensores", pageController,3),

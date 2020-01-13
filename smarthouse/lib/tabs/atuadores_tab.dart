@@ -1,25 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:smarthouse/tiles/switch_list_tile.dart';
 
-class AtuadoresTab extends StatelessWidget {
-  bool lights = false;
+class AtuadoresTab extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        if (lights == false) {
-          lights = true;
-          print(lights);
-        } else {
-          lights = false;
-          print(lights);
-        }
+  _AtuadoresTabState createState() => _AtuadoresTabState();
+}
+
+class _AtuadoresTabState extends State<AtuadoresTab> {
+  bool lights = false;
+
+ 
+
+  final List<ItemModel> _itens = [ItemModel("Sala", false), ItemModel("Quarto", false)];
+
+  @override
+  Widget build(BuildContext context) 
+  {
+    return ListView.builder(
+      itemCount: this._itens.length,
+      itemBuilder: (BuildContext context, int index){
+        
+        ItemModel item = this._itens[ index ];
+        return SwitchListTile(
+          title: Text( item.titulo ),
+          value: item.value,
+          onChanged: (bool value) => this.setState((){
+            this._itens[ index ].value = !item.value;
+          }),
+        );
       },
-      child: ListView(
-        children: <Widget>[
-          SwichtTile(Icons.lightbulb_outline, "Lâmpada da Sala", 2, lights),
-        ],
-      ),
     );
+  }
+}
+
+class ItemModel {
+  String _tiulo;
+  bool _value;
+
+  ItemModel(this._tiulo, this._value);
+
+  String get titulo{
+    return this._tiulo;
+  }
+
+  bool get value{
+    return this._value;
+  }
+
+  set value(bool b){
+    this._value = b;
   }
 }
